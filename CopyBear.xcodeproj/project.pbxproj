@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FFDA6A472CB45B5B0004ADF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDA6A402CB45B5B0004ADF2 /* Preview Assets.xcassets */; };
+		FFDA6A482CB45B5B0004ADF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDA6A422CB45B5B0004ADF2 /* Assets.xcassets */; };
+		FFDA6A4A2CB45B5B0004ADF2 /* CopyBearApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A452CB45B5B0004ADF2 /* CopyBearApp.swift */; };
+		FFDA6A4E2CB45B7E0004ADF2 /* CopiedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A4D2CB45B7A0004ADF2 /* CopiedItem.swift */; };
+		FFDA6A502CB45BA30004ADF2 /* MenuBarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A4F2CB45BA00004ADF2 /* MenuBarContent.swift */; };
+		FFDA6A522CB45BBC0004ADF2 /* CopiedItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FFDA6A242CB45B540004ADF2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +36,16 @@
 		FFDA6A122CB45B530004ADF2 /* CopyBear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyBear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA6A232CB45B540004ADF2 /* CopyBearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyBearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA6A2D2CB45B540004ADF2 /* CopyBearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyBearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFDA6A402CB45B5B0004ADF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FFDA6A422CB45B5B0004ADF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFDA6A442CB45B5B0004ADF2 /* CopyBear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CopyBear.entitlements; sourceTree = "<group>"; };
+		FFDA6A452CB45B5B0004ADF2 /* CopyBearApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBearApp.swift; sourceTree = "<group>"; };
+		FFDA6A4D2CB45B7A0004ADF2 /* CopiedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedItem.swift; sourceTree = "<group>"; };
+		FFDA6A4F2CB45BA00004ADF2 /* MenuBarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContent.swift; sourceTree = "<group>"; };
+		FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedItemsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FFDA6A142CB45B530004ADF2 /* CopyBear */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CopyBear;
-			sourceTree = "<group>";
-		};
 		FFDA6A262CB45B540004ADF2 /* CopyBearTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CopyBearTests;
@@ -75,7 +86,7 @@
 		FFDA6A092CB45B530004ADF2 = {
 			isa = PBXGroup;
 			children = (
-				FFDA6A142CB45B530004ADF2 /* CopyBear */,
+				FFDA6A462CB45B5B0004ADF2 /* CopyBear */,
 				FFDA6A262CB45B540004ADF2 /* CopyBearTests */,
 				FFDA6A302CB45B540004ADF2 /* CopyBearUITests */,
 				FFDA6A132CB45B530004ADF2 /* Products */,
@@ -92,6 +103,44 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FFDA6A412CB45B5B0004ADF2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FFDA6A402CB45B5B0004ADF2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FFDA6A462CB45B5B0004ADF2 /* CopyBear */ = {
+			isa = PBXGroup;
+			children = (
+				FFDA6A4C2CB45B690004ADF2 /* View Models */,
+				FFDA6A4B2CB45B620004ADF2 /* Views */,
+				FFDA6A412CB45B5B0004ADF2 /* Preview Content */,
+				FFDA6A422CB45B5B0004ADF2 /* Assets.xcassets */,
+				FFDA6A442CB45B5B0004ADF2 /* CopyBear.entitlements */,
+				FFDA6A452CB45B5B0004ADF2 /* CopyBearApp.swift */,
+			);
+			path = CopyBear;
+			sourceTree = "<group>";
+		};
+		FFDA6A4B2CB45B620004ADF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFDA6A4F2CB45BA00004ADF2 /* MenuBarContent.swift */,
+				FFDA6A4D2CB45B7A0004ADF2 /* CopiedItem.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FFDA6A4C2CB45B690004ADF2 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +155,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				FFDA6A142CB45B530004ADF2 /* CopyBear */,
 			);
 			name = CopyBear;
 			packageProductDependencies = (
@@ -212,6 +258,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDA6A472CB45B5B0004ADF2 /* Preview Assets.xcassets in Resources */,
+				FFDA6A482CB45B5B0004ADF2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDA6A502CB45BA30004ADF2 /* MenuBarContent.swift in Sources */,
+				FFDA6A522CB45BBC0004ADF2 /* CopiedItemsViewModel.swift in Sources */,
+				FFDA6A4A2CB45B5B0004ADF2 /* CopyBearApp.swift in Sources */,
+				FFDA6A4E2CB45B7E0004ADF2 /* CopiedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +453,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -428,6 +481,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

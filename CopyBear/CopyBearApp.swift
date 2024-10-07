@@ -10,8 +10,11 @@ import SwiftUI
 @main
 struct CopyBearApp: App {
     var body: some Scene {
+      MenuBarExtra("CopyBear", systemImage: "teddybear.fill") {
+            MenuBarContent()
+          }.menuBarExtraStyle(.window)
         WindowGroup {
-            ContentView()
+
         }
     }
 }
