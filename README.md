@@ -1,4 +1,7 @@
-# CopyBear <img width="60" height="60" alt="CopyBear (Image Credits: Microsoft Bing Image Creator)" src="https://github.com/user-attachments/assets/9964d0fd-85d5-42b0-9ebf-e25705d34858">
+<div align="center">
+<img width="120" height="120" alt="CopyBear (Image Credits: Microsoft Bing Image Creator)" src="https://github.com/user-attachments/assets/9964d0fd-85d5-42b0-9ebf-e25705d34858">
+<h1>CopyBear</h1>
+</div>
 A macOS menu bar app that tracks clipboard copy history so you can go back in time and find data you copied.
 
 ## Screenshots 📸
