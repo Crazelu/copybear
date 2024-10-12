@@ -9,6 +9,9 @@ import SwiftUI
 
 class CopiedItemsViewModel: ObservableObject {
   let pasteBoard = NSPasteboard.general
+
+  @Published var viewType: ViewType = ViewType.all
+
   @Published var copiedTexts: [String] = []
   var changeCount: Int = -1
 

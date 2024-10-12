@@ -13,6 +13,10 @@
 		FFDA6A4E2CB45B7E0004ADF2 /* CopiedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A4D2CB45B7A0004ADF2 /* CopiedItem.swift */; };
 		FFDA6A502CB45BA30004ADF2 /* MenuBarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A4F2CB45BA00004ADF2 /* MenuBarContent.swift */; };
 		FFDA6A522CB45BBC0004ADF2 /* CopiedItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */; };
+		FFDA6A542CBAFC6F0004ADF2 /* CopyBearLogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A532CBAFC640004ADF2 /* CopyBearLogoHeader.swift */; };
+		FFDA6A572CBB00CB0004ADF2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A562CBB00C60004ADF2 /* Constants.swift */; };
+		FFDA6A5A2CBB07130004ADF2 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A592CBB07080004ADF2 /* ViewType.swift */; };
+		FFDA6A5C2CBB074E0004ADF2 /* ViewTypeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A5B2CBB074A0004ADF2 /* ViewTypeMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 		FFDA6A4D2CB45B7A0004ADF2 /* CopiedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedItem.swift; sourceTree = "<group>"; };
 		FFDA6A4F2CB45BA00004ADF2 /* MenuBarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContent.swift; sourceTree = "<group>"; };
 		FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedItemsViewModel.swift; sourceTree = "<group>"; };
+		FFDA6A532CBAFC640004ADF2 /* CopyBearLogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBearLogoHeader.swift; sourceTree = "<group>"; };
+		FFDA6A562CBB00C60004ADF2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FFDA6A592CBB07080004ADF2 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+		FFDA6A5B2CBB074A0004ADF2 /* ViewTypeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTypeMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -114,6 +122,8 @@
 		FFDA6A462CB45B5B0004ADF2 /* CopyBear */ = {
 			isa = PBXGroup;
 			children = (
+				FFDA6A582CBB06BB0004ADF2 /* Models */,
+				FFDA6A552CBB00BC0004ADF2 /* Utils */,
 				FFDA6A4C2CB45B690004ADF2 /* View Models */,
 				FFDA6A4B2CB45B620004ADF2 /* Views */,
 				FFDA6A412CB45B5B0004ADF2 /* Preview Content */,
@@ -127,6 +137,8 @@
 		FFDA6A4B2CB45B620004ADF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFDA6A5B2CBB074A0004ADF2 /* ViewTypeMenu.swift */,
+				FFDA6A532CBAFC640004ADF2 /* CopyBearLogoHeader.swift */,
 				FFDA6A4F2CB45BA00004ADF2 /* MenuBarContent.swift */,
 				FFDA6A4D2CB45B7A0004ADF2 /* CopiedItem.swift */,
 			);
@@ -139,6 +151,22 @@
 				FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		FFDA6A552CBB00BC0004ADF2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FFDA6A562CBB00C60004ADF2 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FFDA6A582CBB06BB0004ADF2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFDA6A592CBB07080004ADF2 /* ViewType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,10 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDA6A5A2CBB07130004ADF2 /* ViewType.swift in Sources */,
 				FFDA6A502CB45BA30004ADF2 /* MenuBarContent.swift in Sources */,
 				FFDA6A522CB45BBC0004ADF2 /* CopiedItemsViewModel.swift in Sources */,
+				FFDA6A542CBAFC6F0004ADF2 /* CopyBearLogoHeader.swift in Sources */,
 				FFDA6A4A2CB45B5B0004ADF2 /* CopyBearApp.swift in Sources */,
 				FFDA6A4E2CB45B7E0004ADF2 /* CopiedItem.swift in Sources */,
+				FFDA6A572CBB00CB0004ADF2 /* Constants.swift in Sources */,
+				FFDA6A5C2CBB074E0004ADF2 /* ViewTypeMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

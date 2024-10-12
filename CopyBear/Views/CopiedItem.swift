@@ -9,13 +9,10 @@ import SwiftUI
 
 struct CopiedItem: View {
   var text: String
+  var backgroundColor: Color
 
-  @State var showCheckMark = false
   @Environment(\.colorScheme) var colorScheme
-
-  private var backgroundColor: Color {
-    colorScheme == .dark ?  Color.cyan.opacity(0.3) : Color.indigo.opacity(0.8)
-  }
+  @State var showCheckMark = false
 
   private var showCheckMarkOpacity: Double {
     colorScheme == .dark ? 0.2 : 0.5
@@ -25,12 +22,12 @@ struct CopiedItem: View {
     ZStack {
       Text(text)
         .font(.body)
-        .foregroundStyle(.white)
-        .lineLimit(3)
-        .padding()
-        .frame(width: 120, height: 100)
+        .foregroundStyle(Constants.Colors.textColor)
+        .lineLimit(5)
+        .padding(10)
+        .frame(width: 120, height: 100, alignment: .topLeading)
         .background(backgroundColor)
-        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 12, height: 12)))
+        .clipShape(.rect(cornerRadius: 10))
         .onTapGesture {
           let pasteboard =  NSPasteboard.general
           pasteboard.clearContents()
