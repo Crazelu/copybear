@@ -7,20 +7,15 @@
 
 import SwiftUI
 
-struct MenuBarContent: View {
-  @StateObject var vm = CopiedItemsViewModel()
+struct MenuBarContentView: View {
+  @EnvironmentObject var vm: CopiedItemsViewModel
 
-  let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12), GridItem(.flexible())]
-
-  private func getCardColor(for index: Int) -> Color {
-    let i = (index + 1) % 6
-    return switch i {
-      case 1: Constants.Colors.blue
-      case 2: Constants.Colors.pink
-      case 3: Constants.Colors.purple
-      case 4: Constants.Colors.yellow
-      case 5: Constants.Colors.green
-      default:Constants.Colors.orange
+  @ViewBuilder private var contentView: some View {
+    switch vm.viewType {
+    case .all:
+      AllCopiedItemsView()
+    case .categories:
+      EmptyView()
     }
   }
 
@@ -29,7 +24,7 @@ struct MenuBarContent: View {
       VStack(alignment: .leading, spacing: 20) {
         CopyBearLogoHeader()
 
-        if !vm.copiedTexts.isEmpty {
+        if !vm.allCopies.isEmpty {
           HStack(alignment: .top) {
             ViewTypeMenu(selectedViewType: $vm.viewType)
             Spacer()
@@ -50,18 +45,11 @@ struct MenuBarContent: View {
         }
 
         ScrollView {
-          LazyVGrid(columns: columns) {
-            ForEach(0..<vm.copiedTexts.count, id: \.self) { index in
-              CopiedItem(
-                text: vm.copiedTexts[index],
-                backgroundColor: getCardColor(for: index)
-              )
-            }
-          }
+          contentView
         }
       }
 
-      if vm.copiedTexts.isEmpty {
+      if vm.allCopies.isEmpty {
         Image(systemName: "teddybear.fill")
           .resizable()
           .frame(width: 100, height: 100)

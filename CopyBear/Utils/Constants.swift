@@ -18,5 +18,7 @@ enum Constants {
     static let orange = Color("MutedOrange")
     static let textColor = Color("TextColor")
     static let dropdownMenuBackground = Color("DropDownMenuBackgroundColor")
+    static let iconColor = Color("IconColor")
+    static let cardColor = Color("CardColor")
   }
 }

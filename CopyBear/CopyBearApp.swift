@@ -11,8 +11,9 @@ import SwiftUI
 struct CopyBearApp: App {
     var body: some Scene {
       MenuBarExtra("CopyBear", systemImage: "teddybear.fill") {
-            MenuBarContent()
+        MenuBarContentView().environmentObject(CopiedItemsViewModel())
           }.menuBarExtraStyle(.window)
+
         WindowGroup {
 
         }
