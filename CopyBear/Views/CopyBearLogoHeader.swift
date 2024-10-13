@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CopyBearLogoHeader: View {
   var body: some View {
-    Image("CopyBearIcon")
+    Image(Constants.Icons.logo)
       .resizable()
       .frame(width: 90.35, height: 30.42)
   }

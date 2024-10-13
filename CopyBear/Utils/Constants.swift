@@ -20,5 +20,13 @@ enum Constants {
     static let dropdownMenuBackground = Color("DropDownMenuBackgroundColor")
     static let iconColor = Color("IconColor")
     static let cardColor = Color("CardColor")
+    static let subtitleTextColor = Color("SubtitleTextColor")
+  }
+
+  enum Icons {
+    static let logo = "CopyBearIcon"
+    static let textCategoryIcon = "TextCategoryIcon"
+    static let imageCategoryIcon = "ImageCategoryIcon"
+    static let otherCategoryIcon = "OtherCategoryIcon"
   }
 }

@@ -11,7 +11,7 @@
 		FFDA6A482CB45B5B0004ADF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDA6A422CB45B5B0004ADF2 /* Assets.xcassets */; };
 		FFDA6A4A2CB45B5B0004ADF2 /* CopyBearApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A452CB45B5B0004ADF2 /* CopyBearApp.swift */; };
 		FFDA6A4E2CB45B7E0004ADF2 /* CopyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A4D2CB45B7A0004ADF2 /* CopyItemView.swift */; };
-		FFDA6A502CB45BA30004ADF2 /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A4F2CB45BA00004ADF2 /* MenuBarContentView.swift */; };
+		FFDA6A502CB45BA30004ADF2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A4F2CB45BA00004ADF2 /* HomeView.swift */; };
 		FFDA6A522CB45BBC0004ADF2 /* CopiedItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */; };
 		FFDA6A542CBAFC6F0004ADF2 /* CopyBearLogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A532CBAFC640004ADF2 /* CopyBearLogoHeader.swift */; };
 		FFDA6A572CBB00CB0004ADF2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A562CBB00C60004ADF2 /* Constants.swift */; };
@@ -23,6 +23,10 @@
 		FFDA6A642CBB28C60004ADF2 /* CopyItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A632CBB28C00004ADF2 /* CopyItemType.swift */; };
 		FFDA6A662CBB2B650004ADF2 /* CopyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A652CBB2B610004ADF2 /* CopyItem.swift */; };
 		FFDA6A682CBB43EE0004ADF2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A672CBB43E30004ADF2 /* Utility.swift */; };
+		FFDA6A6A2CBB55BB0004ADF2 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A692CBB55B70004ADF2 /* CategoryCardView.swift */; };
+		FFDA6A6C2CBB5D8F0004ADF2 /* CategoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A6B2CBB5D890004ADF2 /* CategoryContentView.swift */; };
+		FFDA6A6E2CBB60F20004ADF2 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A6D2CBB60EC0004ADF2 /* NavigationDestination.swift */; };
+		FFDA6A702CBB62690004ADF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +55,7 @@
 		FFDA6A442CB45B5B0004ADF2 /* CopyBear.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CopyBear.entitlements; sourceTree = "<group>"; };
 		FFDA6A452CB45B5B0004ADF2 /* CopyBearApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBearApp.swift; sourceTree = "<group>"; };
 		FFDA6A4D2CB45B7A0004ADF2 /* CopyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyItemView.swift; sourceTree = "<group>"; };
-		FFDA6A4F2CB45BA00004ADF2 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
+		FFDA6A4F2CB45BA00004ADF2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedItemsViewModel.swift; sourceTree = "<group>"; };
 		FFDA6A532CBAFC640004ADF2 /* CopyBearLogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyBearLogoHeader.swift; sourceTree = "<group>"; };
 		FFDA6A562CBB00C60004ADF2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -63,6 +67,10 @@
 		FFDA6A632CBB28C00004ADF2 /* CopyItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyItemType.swift; sourceTree = "<group>"; };
 		FFDA6A652CBB2B610004ADF2 /* CopyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyItem.swift; sourceTree = "<group>"; };
 		FFDA6A672CBB43E30004ADF2 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		FFDA6A692CBB55B70004ADF2 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
+		FFDA6A6B2CBB5D890004ADF2 /* CategoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentView.swift; sourceTree = "<group>"; };
+		FFDA6A6D2CBB60EC0004ADF2 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
+		FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -149,11 +157,14 @@
 		FFDA6A4B2CB45B620004ADF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */,
+				FFDA6A6B2CBB5D890004ADF2 /* CategoryContentView.swift */,
+				FFDA6A692CBB55B70004ADF2 /* CategoryCardView.swift */,
 				FFDA6A5F2CBB1E700004ADF2 /* CategoriesView.swift */,
 				FFDA6A5D2CBB1B9D0004ADF2 /* AllCopiedItemsView.swift */,
 				FFDA6A5B2CBB074A0004ADF2 /* ViewTypeMenu.swift */,
 				FFDA6A532CBAFC640004ADF2 /* CopyBearLogoHeader.swift */,
-				FFDA6A4F2CB45BA00004ADF2 /* MenuBarContentView.swift */,
+				FFDA6A4F2CB45BA00004ADF2 /* HomeView.swift */,
 				FFDA6A4D2CB45B7A0004ADF2 /* CopyItemView.swift */,
 			);
 			path = Views;
@@ -179,6 +190,7 @@
 		FFDA6A582CBB06BB0004ADF2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FFDA6A6D2CBB60EC0004ADF2 /* NavigationDestination.swift */,
 				FFDA6A652CBB2B610004ADF2 /* CopyItem.swift */,
 				FFDA6A632CBB28C00004ADF2 /* CopyItemType.swift */,
 				FFDA6A612CBB1EC50004ADF2 /* Category.swift */,
@@ -333,16 +345,20 @@
 				FFDA6A682CBB43EE0004ADF2 /* Utility.swift in Sources */,
 				FFDA6A5A2CBB07130004ADF2 /* ViewType.swift in Sources */,
 				FFDA6A662CBB2B650004ADF2 /* CopyItem.swift in Sources */,
-				FFDA6A502CB45BA30004ADF2 /* MenuBarContentView.swift in Sources */,
+				FFDA6A502CB45BA30004ADF2 /* HomeView.swift in Sources */,
 				FFDA6A522CB45BBC0004ADF2 /* CopiedItemsViewModel.swift in Sources */,
 				FFDA6A5E2CBB1BB20004ADF2 /* AllCopiedItemsView.swift in Sources */,
 				FFDA6A542CBAFC6F0004ADF2 /* CopyBearLogoHeader.swift in Sources */,
+				FFDA6A6A2CBB55BB0004ADF2 /* CategoryCardView.swift in Sources */,
+				FFDA6A6C2CBB5D8F0004ADF2 /* CategoryContentView.swift in Sources */,
 				FFDA6A642CBB28C60004ADF2 /* CopyItemType.swift in Sources */,
 				FFDA6A4A2CB45B5B0004ADF2 /* CopyBearApp.swift in Sources */,
 				FFDA6A4E2CB45B7E0004ADF2 /* CopyItemView.swift in Sources */,
 				FFDA6A572CBB00CB0004ADF2 /* Constants.swift in Sources */,
 				FFDA6A602CBB1E770004ADF2 /* CategoriesView.swift in Sources */,
+				FFDA6A702CBB62690004ADF2 /* ContentView.swift in Sources */,
 				FFDA6A5C2CBB074E0004ADF2 /* ViewTypeMenu.swift in Sources */,
+				FFDA6A6E2CBB60F20004ADF2 /* NavigationDestination.swift in Sources */,
 				FFDA6A622CBB1ECA0004ADF2 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,11 +7,16 @@
 
 import Foundation
 
-struct Category {
+public class Category {
   let type: CopyItemType
-  var items: [Data]
+  var items: [CopyItem]
 
-  mutating func addItem(_ data: Data) {
-    items.append(data)
+  init(type: CopyItemType) {
+    self.type = type
+    self.items = []
+  }
+
+  func addItem(_ item: CopyItem) {
+    items.append(item)
   }
 }

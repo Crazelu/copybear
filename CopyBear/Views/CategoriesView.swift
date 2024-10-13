@@ -17,8 +17,11 @@ struct CategoriesView: View {
   
   var body: some View {
     LazyVGrid(columns: columns) {
-      ForEach(0..<vm.allCopies.count, id: \.self) { index in
-        
+      ForEach(0..<vm.categories.count, id: \.self) { index in
+        CategoryCardView(category: $vm.categories[index])
+          .onTapGesture {
+            vm.selectCategory(vm.categories[index])
+          }
       }
     }
   }

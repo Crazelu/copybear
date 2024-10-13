@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuBarContentView: View {
+struct HomeView: View {
   @EnvironmentObject var vm: CopiedItemsViewModel
 
   @ViewBuilder private var contentView: some View {
@@ -15,8 +15,12 @@ struct MenuBarContentView: View {
     case .all:
       AllCopiedItemsView()
     case .categories:
-      EmptyView()
+      CategoriesView()
     }
+  }
+
+  var showEmptyState: Bool {
+    vm.copiedItems.isEmpty && vm.viewType == .all
   }
 
   var body: some View {
@@ -24,10 +28,13 @@ struct MenuBarContentView: View {
       VStack(alignment: .leading, spacing: 20) {
         CopyBearLogoHeader()
 
-        if !vm.allCopies.isEmpty {
-          HStack(alignment: .top) {
+
+        HStack(alignment: .top) {
+          if !showEmptyState {
             ViewTypeMenu(selectedViewType: $vm.viewType)
-            Spacer()
+          }
+          Spacer()
+          if !vm.copiedItems.isEmpty {
             HStack(spacing: 5) {
               Text("Delete all")
                 .font(.body)
@@ -49,7 +56,7 @@ struct MenuBarContentView: View {
         }
       }
 
-      if vm.allCopies.isEmpty {
+      if showEmptyState {
         Image(systemName: "teddybear.fill")
           .resizable()
           .frame(width: 100, height: 100)
@@ -57,10 +64,10 @@ struct MenuBarContentView: View {
           .opacity(0.4)
       }
     }.padding()
-    .frame(width: 430, height: 400)
-    .background(Constants.Colors.background)
-    .task {
-      vm.listenForCopyEvent()
-    }
+      .frame(width: 430, height: 400)
+      .background(Constants.Colors.background)
+      .task {
+        vm.listenForCopyEvent()
+      }
   }
 }
