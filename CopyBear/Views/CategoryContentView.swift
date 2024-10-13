@@ -25,9 +25,9 @@ struct CategoryContentView: View {
           HStack(alignment: .top) {
             HStack(spacing: 5) {
               Image(systemName: "chevron.left")
-                .font(.headline)
+                .font(.body)
               Text(category.title)
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.medium)
             }
             .onTapGesture {

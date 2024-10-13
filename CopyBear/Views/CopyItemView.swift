@@ -36,9 +36,9 @@ struct CopyItemView: View {
             .stroke(Constants.Colors.iconColor.opacity(0.1))
         }
     case .link:
-      CopiedLinkView(link: item.data.content)
+      CopiedLinkView(link: item.data.content, backgroundColor: backgroundColor)
     case .other:
-      CopiedFileView(filePath: item.data.content)
+      CopiedFileView(filePath: item.data.content, backgroundColor: backgroundColor)
     }
   }
 
@@ -76,7 +76,7 @@ private struct CopiedTextView: View {
       .font(.body)
       .foregroundStyle(Constants.Colors.textColor)
       .lineLimit(5)
-      .padding(10)
+      .padding(8)
       .frame(width: 120, height: 100, alignment: .topLeading)
       .background(backgroundColor)
   }
@@ -84,6 +84,7 @@ private struct CopiedTextView: View {
 
 private struct CopiedFileView: View {
   var filePath: String
+  var backgroundColor: Color
 
   private var icon: String {
     let fileExtension = filePath.fileExtension
@@ -92,7 +93,7 @@ private struct CopiedFileView: View {
     switch fileExtension {
     case "mp4", "mov":
       icon = "video"
-    case "pdf", "txt":
+    case "pdf", "txt", "doc", "docx":
       icon = "doc.text"
     case "mp3", "wav":
       icon = "music.note"
@@ -107,37 +108,44 @@ private struct CopiedFileView: View {
   }
 
   var body: some View {
-    IconTextStack(icon: icon, text: fileName)
+    IconTextStack(icon: icon, text: fileName, backgroundColor: backgroundColor)
   }
 }
 
 private struct CopiedLinkView: View {
   let link: String
+  var backgroundColor: Color
 
   var body: some View {
-    IconTextStack(icon: "link", text: link.withoutURLPrefixes)
+    IconTextStack(
+      icon: "link",
+      text: link.withoutURLPrefixes,
+      backgroundColor: backgroundColor
+    )
   }
 }
 
 private struct IconTextStack: View {
   let icon: String
   let text: String
+  var backgroundColor: Color
 
   var body: some View {
-    VStack(alignment: .center) {
+    VStack(alignment: .leading) {
       Image(systemName: icon)
         .font(.footnote)
-        .foregroundStyle(Constants.Colors.iconColor)
-        .padding(14)
-        .background(Constants.Colors.iconColor.opacity(0.1))
+        .foregroundStyle(Constants.Colors.textColor)
+        .padding(10)
+        .background(Constants.Colors.textColor.opacity(0.1))
         .clipShape(.circle)
       Text(text)
         .font(.body)
-        .lineLimit(2)
+        .foregroundStyle(Constants.Colors.textColor)
+        .lineLimit(3)
     }
-    .padding(10)
-    .frame(width: 120, height: 100)
-    .background(Constants.Colors.cardColor)
+    .padding(8)
+    .frame(width: 120, height: 100, alignment: .leading)
+    .background(backgroundColor)
     .overlay {
       RoundedRectangle(cornerRadius: 10)
         .stroke(Constants.Colors.iconColor.opacity(0.1))
