@@ -28,5 +28,6 @@ enum Constants {
     static let textCategoryIcon = "TextCategoryIcon"
     static let imageCategoryIcon = "ImageCategoryIcon"
     static let otherCategoryIcon = "OtherCategoryIcon"
+    static let linkCategoryIcon = "LinkCategoryIcon"
   }
 }

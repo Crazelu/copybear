@@ -25,11 +25,17 @@ class CopiedItemsViewModel: ObservableObject {
   @Published var copiedItems: [CopyItem] = []
   @Published var categories: [Category] = [
     Category(type: .text),
+    Category(type: .link),
     Category(type: .image),
     Category(type: .other)
   ]
 
   private func getLastCopiedItem() {
+    if doNotHonorCopy {
+      doNotHonorCopy.toggle()
+      return
+    }
+
     if let image = pasteBoard.data(forType: .png) {
       let item = CopyItem(type: .image, data: image)
       if copiedItems.contains(where: {$0 == item}) {return}
@@ -69,33 +75,35 @@ class CopiedItemsViewModel: ObservableObject {
     }
 
     if let text = pasteBoard.data(forType: .string) {
-      let item = CopyItem(type: .text, data: text)
+      let itemType: CopyItemType = text.content.isURL ? .link : .text
+      let item = CopyItem(type: itemType, data: text)
       if copiedItems.contains(where: {$0 == item}) {return}
       copiedItems.append(item)
-      if let category = categories.first(where: { $0.type == CopyItemType.text }) {
+      if let category = categories.first(where: {$0.type == itemType}) {
         category.addItem(item)
       }
     }
   }
 
+  private func sortCategories() {
+    categories.sort { a, b in
+      a.items.count > b.items.count
+    }
+  }
+
 
   func listenForCopyEvent() {
-    if doNotHonorCopy {
-      doNotHonorCopy.toggle()
-      return
-    }
-
     changeCount = pasteBoard.changeCount
     getLastCopiedItem()
+    sortCategories()
 
     Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
       let newChangeCount = self.pasteBoard.changeCount
-      if newChangeCount > self.changeCount && !self.doNotHonorCopy {
+      if newChangeCount > self.changeCount {
         self.changeCount = newChangeCount
         self.getLastCopiedItem()
+        self.sortCategories()
       }
-
-      self.doNotHonorCopy = false
     }
   }
 
@@ -103,6 +111,7 @@ class CopiedItemsViewModel: ObservableObject {
     copiedItems = []
     categories = [
       Category(type: .text),
+      Category(type: .link),
       Category(type: .image),
       Category(type: .other)
     ]
@@ -114,6 +123,7 @@ class CopiedItemsViewModel: ObservableObject {
     if let category = categories.first(where: {$0.type == itemType}) {
       category.items = []
     }
+    sortCategories()
   }
 
   func paste(_ item: CopyItem) {
@@ -121,7 +131,7 @@ class CopiedItemsViewModel: ObservableObject {
     var pasteBoardType: NSPasteboard.PasteboardType
 
     switch item.type {
-    case .text:
+    case .text, .link:
       pasteBoardType = .string
     case .image:
       pasteBoardType = .png
@@ -143,7 +153,6 @@ class CopiedItemsViewModel: ObservableObject {
   }
 
   func goBackHome() {
-    doNotHonorCopy = true
     navigationDestination = NavigationDestination.home
     selectedCategory = nil
   }

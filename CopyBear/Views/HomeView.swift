@@ -63,11 +63,6 @@ struct HomeView: View {
           .foregroundStyle(Constants.Colors.blue)
           .opacity(0.4)
       }
-    }.padding()
-      .frame(width: 430, height: 400)
-      .background(Constants.Colors.background)
-      .task {
-        vm.listenForCopyEvent()
-      }
+    }
   }
 }

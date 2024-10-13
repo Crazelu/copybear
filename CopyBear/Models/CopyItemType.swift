@@ -8,5 +8,6 @@
 enum CopyItemType {
   case text
   case image
+  case link
   case other
 }

@@ -35,6 +35,8 @@ struct CopyItemView: View {
           RoundedRectangle(cornerRadius: 10)
             .stroke(Constants.Colors.iconColor.opacity(0.1))
         }
+    case .link:
+      CopiedLinkView(link: item.data.content)
     case .other:
       CopiedFileView(filePath: item.data.content)
     }
@@ -70,13 +72,13 @@ private struct CopiedTextView: View {
   var backgroundColor: Color
 
   var body: some View {
-      Text(text)
-        .font(.body)
-        .foregroundStyle(Constants.Colors.textColor)
-        .lineLimit(5)
-        .padding(10)
-        .frame(width: 120, height: 100, alignment: .topLeading)
-        .background(backgroundColor)
+    Text(text)
+      .font(.body)
+      .foregroundStyle(Constants.Colors.textColor)
+      .lineLimit(5)
+      .padding(10)
+      .frame(width: 120, height: 100, alignment: .topLeading)
+      .background(backgroundColor)
   }
 }
 
@@ -88,21 +90,38 @@ private struct CopiedFileView: View {
     var icon = "doc"
 
     switch fileExtension {
-      case "mp4", "mov":
-        icon = "video"
-      case "pdf", "txt":
-        icon = "doc.text"
-      case "mp3", "wav":
-        icon = "music.note"
-      default: icon = "doc"
+    case "mp4", "mov":
+      icon = "video"
+    case "pdf", "txt":
+      icon = "doc.text"
+    case "mp3", "wav":
+      icon = "music.note"
+    default: icon = "doc"
     }
 
     return icon
   }
 
   private var fileName: String {
-     filePath.split(separator: "/").last?.lowercased() ?? ""
+    filePath.split(separator: "/").last?.lowercased() ?? ""
   }
+
+  var body: some View {
+    IconTextStack(icon: icon, text: fileName)
+  }
+}
+
+private struct CopiedLinkView: View {
+  let link: String
+
+  var body: some View {
+    IconTextStack(icon: "link", text: link.withoutURLPrefixes)
+  }
+}
+
+private struct IconTextStack: View {
+  let icon: String
+  let text: String
 
   var body: some View {
     VStack(alignment: .center) {
@@ -112,7 +131,7 @@ private struct CopiedFileView: View {
         .padding(14)
         .background(Constants.Colors.iconColor.opacity(0.1))
         .clipShape(.circle)
-      Text(fileName)
+      Text(text)
         .font(.body)
         .lineLimit(2)
     }
