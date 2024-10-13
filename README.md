@@ -10,7 +10,7 @@ I spent some time writing a really good description for a merge request at work 
 Well, the mental note sure didn't stick. I CMD+V'd another stuff and lost my really good MR description. I then tried to see if macOS had a copy history so I can retrieve my really good description. Answer is no. I got pissed, rewrote the description and made another mental note to build something that maintains clipboard history. That mental note stuck, hence **CopyBear**.
 
 ## Demo 📸
-<video src=https://raw.githubusercontent.com/Crazelu/copybear/main/Screenshots/demo.mov" width=480/>
+<video src="https://raw.githubusercontent.com/Crazelu/copybear/main/Screenshots/demo.mov" width=480></video>
 
 ## Todo 📋
 - [x] Support non-string PasteboardTypes (e.g copying files)
