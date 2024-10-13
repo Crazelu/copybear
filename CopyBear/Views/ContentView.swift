@@ -27,10 +27,6 @@ struct ContentView: View {
       }
     }
     .padding()
-      .frame(width: 430, height: 400)
-      .background(Constants.Colors.background)
-      .task {
-        vm.listenForCopyEvent()
-      }
-  }
+    .frame(width: 430, height: 400)
+    .background(Constants.Colors.background)  }
 }

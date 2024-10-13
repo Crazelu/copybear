@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import ServiceManagement
 
 @main
 struct CopyBearApp: App {
-    var body: some Scene {
-      MenuBarExtra("CopyBear", systemImage: "teddybear.fill") {
-        ContentView().environmentObject(CopiedItemsViewModel())
-          }.menuBarExtraStyle(.window)
+  let vm = CopiedItemsViewModel()
 
-        WindowGroup {
+  init() {
+    vm.listenForCopyEvent()
+    try? SMAppService.mainApp.register()
+  }
 
-        }
-    }
+  var body: some Scene {
+    MenuBarExtra("CopyBear", systemImage: "teddybear.fill") {
+      ContentView().environmentObject(vm)
+    }.menuBarExtraStyle(.window)
+
+    WindowGroup {}
+  }
 }
