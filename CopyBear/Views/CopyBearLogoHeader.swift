@@ -11,6 +11,7 @@ struct CopyBearLogoHeader: View {
   var body: some View {
     Image(Constants.Icons.logo)
       .resizable()
-      .frame(width: 90.35, height: 30.42)
+      .scaledToFit()
+      .frame(width: 114, height: 30)
   }
 }
