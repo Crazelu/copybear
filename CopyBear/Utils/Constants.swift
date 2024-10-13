@@ -11,9 +11,9 @@ enum Constants {
   enum Colors {
     static let background = Color("BackgroundColor")
     static let blue = Color("MutedBlue")
-    static let pink = Color("Pink")
-    static let purple = Color("Purple")
-    static let yellow = Color("Yellow")
+    static let pink = Color("AppPink")
+    static let purple = Color("AppPurple")
+    static let yellow = Color("AppYellow")
     static let green = Color("LightGreen")
     static let orange = Color("MutedOrange")
     static let textColor = Color("TextColor")
