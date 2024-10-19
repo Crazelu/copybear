@@ -30,7 +30,9 @@ struct ViewTypeMenu: View {
             .font(.title3)
           Image(systemName: "chevron.down")
             .font(.headline)
-        }.onTapGesture {
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
           withAnimation {
             expanded.toggle()
           }

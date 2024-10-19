@@ -30,6 +30,7 @@ struct CategoryContentView: View {
                 .font(.title3)
                 .fontWeight(.medium)
             }
+            .contentShape(Rectangle())
             .onTapGesture {
               withAnimation {
                 vm.goBackHome()
