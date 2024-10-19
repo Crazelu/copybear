@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var keyCommand: EventHotKeyRef?
   let vm = CopiedItemsViewModel()
 
-  func applicationDidFinishLaunching(_ aNotification: Notification) {
+  func applicationDidFinishLaunching(_ notification: Notification) {
     try? SMAppService.mainApp.register()
     vm.listenForCopyEvent()
     setupMenuBar()
@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private func setupMenuBar() {
     statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     statusItem.button?.image = NSImage(systemSymbolName: "teddybear.fill", accessibilityDescription: "CopyBear")
-    statusItem.button?.action = #selector(togglePopover)
+    statusItem.button?.action = #selector(handleStatusItemClick)
 
     popover = NSPopover()
     popover.behavior = .transient
@@ -53,15 +53,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
   }
 
+  @objc func quitApp() {
+    NSApplication.shared.terminate(self)
+  }
+
+  @objc func handleStatusItemClick(_ sender: Any?) {
+    if let event = NSApp.currentEvent {
+      if event.type == .rightMouseUp || event.modifierFlags.contains(.control) {
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(quitApp), keyEquivalent: "q"))
+        statusItem.menu = menu
+        statusItem.button?.performClick(nil)
+        statusItem.menu = nil
+      } else {
+        togglePopover()
+      }
+    }
+  }
+
   private func registerHotKey() {
-    var gMyHotKeyID = EventHotKeyID()
-    gMyHotKeyID.signature = OSType(0x1234)
-    gMyHotKeyID.id = UInt32(1)
+    var hotKeyID = EventHotKeyID()
+    hotKeyID.signature = OSType(0x1234)
+    hotKeyID.id = UInt32(1)
 
     let modifierFlags: UInt32 = UInt32(cmdKey | shiftKey)
     let keyCode: UInt32 = 9 // 'V' key
 
-    RegisterEventHotKey(keyCode, modifierFlags, gMyHotKeyID, GetApplicationEventTarget(), 0, &keyCommand)
+    RegisterEventHotKey(keyCode, modifierFlags, hotKeyID, GetApplicationEventTarget(), 0, &keyCommand)
 
     var eventSpec = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyPressed))
 
