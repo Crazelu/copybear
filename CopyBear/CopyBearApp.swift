@@ -23,12 +23,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var popover: NSPopover!
   var keyCommand: EventHotKeyRef?
   let vm = CopiedItemsViewModel()
+  let defaults = UserDefaults.standard
+  let versionKey = "CopyBearVersion"
 
   func applicationDidFinishLaunching(_ notification: Notification) {
     try? SMAppService.mainApp.register()
+    checkInstalledVersionAndUpdateLoginItem()
     vm.listenForCopyEvent()
     setupMenuBar()
     registerHotKey()
+  }
+
+  // Updates login item when an updated version of the app is opened
+  private func checkInstalledVersionAndUpdateLoginItem() {
+    if let version = getAppVersion() {
+      guard let installedVersion = defaults.string(forKey: versionKey)
+      else {
+        defaults.set(version, forKey: versionKey)
+        return
+      }
+
+      let currentVersion = Double(version) ?? 0
+      let persistedVersion = Double(installedVersion) ?? 0
+
+      if currentVersion > persistedVersion {
+        SMAppService.mainApp.unregister(completionHandler: { error in
+          if error == nil {
+            self.defaults.set(version, forKey: self.versionKey)
+            try? SMAppService.mainApp.register()
+          }
+        })
+      }
+    }
   }
 
   private func setupMenuBar() {
