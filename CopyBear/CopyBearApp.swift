@@ -62,6 +62,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       if event.type == .rightMouseUp || event.modifierFlags.contains(.control) {
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(quitApp), keyEquivalent: "q"))
+        if let version = getAppVersion() {
+          menu.addItem(NSMenuItem.separator())
+          menu.addItem(NSMenuItem(title: "v\(version)", action: nil, keyEquivalent: ""))
+        }
         statusItem.menu = menu
         statusItem.button?.performClick(nil)
         statusItem.menu = nil
@@ -69,6 +73,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         togglePopover()
       }
     }
+  }
+
+  private func getAppVersion() -> String? {
+    Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   }
 
   private func registerHotKey() {
