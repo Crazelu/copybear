@@ -46,20 +46,19 @@ class CopiedItemsViewModel: ObservableObject {
       }
     }
 
-    if let file = pasteBoard.data(forType: .fileURL) {
-      let item = CopyItem(type: .other, data: file)
+    if let file = pasteBoard.data(forType: .fileURL), let fileName = pasteBoard.data(forType: .string) {
+      let item = CopyItem(type: .other, data: file, name: fileName.content)
       if copiedItems.contains(where: {$0 == item || $0.fileUrl == file }) {return}
-      copiedItems.append(item)
+
 
       // check if file is an image
-      if item.data.content.fileExtension.isImage {
+      if fileName.content.fileExtension.isImage {
         do {
           let imageData = try Data(contentsOf: URL(filePath: file.stripped))
           if let category = categories.first(where: { $0.type == CopyItemType.image }) {
             let imageItem = CopyItem(type: .image, data: imageData, fileUrl: file)
             if copiedItems.contains(where: {$0 == imageItem}) {return}
             category.addItem(imageItem)
-            copiedItems.removeAll(where: {$0 == item})
             copiedItems.append(imageItem)
             return
           }
@@ -68,6 +67,7 @@ class CopiedItemsViewModel: ObservableObject {
         }
       }
 
+      copiedItems.append(item)
       if let category = categories.first(where: { $0.type == CopyItemType.other }) {
         category.addItem(item)
         return

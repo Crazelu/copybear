@@ -38,7 +38,7 @@ struct CopyItemView: View {
     case .link:
       CopiedLinkView(link: item.data.content, backgroundColor: backgroundColor)
     case .other:
-      CopiedFileView(filePath: item.data.content, backgroundColor: backgroundColor)
+      CopiedFileView(filePath: item.name ?? item.data.content, backgroundColor: backgroundColor)
     }
   }
 
