@@ -152,6 +152,15 @@ class CopiedItemsViewModel: ObservableObject {
     navigationDestination = NavigationDestination.category
   }
 
+  func deleteItem(_ item: CopyItem) {
+    copiedItems.removeAll(where: {$0 == item})
+    
+    if let category = categories.first(where: {$0.items.contains(item)}) {
+      category.items.removeAll(where: {$0 == item})
+    }
+    sortCategories()
+  }
+
   func goBackHome() {
     navigationDestination = NavigationDestination.home
     selectedCategory = nil

@@ -13,6 +13,8 @@ struct CopyItemView: View {
 
   @EnvironmentObject var vm: CopiedItemsViewModel
   @State var showCheckMark = false
+  @State private var showDeleteAction = false
+  @State var deletionTimer: Timer?
 
   var showCheckMarkOpacity = 0.2
 
@@ -39,6 +41,26 @@ struct CopyItemView: View {
     }
   }
 
+  var longPress: some Gesture {
+    LongPressGesture(minimumDuration: 0.1)
+      .onEnded { _ in
+        showDeleteAction.toggle()
+        self.deletionTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
+          hideDeleteAction()
+        }
+      }
+  }
+
+  private func hideDeleteAction() {
+    if deletionTimer?.isValid == true {
+      withAnimation {
+        deletionTimer?.invalidate()
+        showDeleteAction.toggle()
+        deletionTimer = nil
+      }
+    }
+  }
+
   var body: some View {
     ZStack {
       copiedItemView
@@ -52,7 +74,24 @@ struct CopyItemView: View {
               timer.invalidate()
             }
           }
-        }.opacity(showCheckMark ? showCheckMarkOpacity : 1.0)
+        }
+        .gesture(longPress)
+        .opacity(showCheckMark || showDeleteAction ? showCheckMarkOpacity : 1.0)
+
+      if showDeleteAction {
+        HStack(spacing: 4) {
+          Text("Delete")
+          Image(systemName: "trash")
+        }
+        .foregroundStyle(.red)
+        .contentShape(Rectangle())
+        .onTapGesture {
+          withAnimation {
+            hideDeleteAction()
+            vm.deleteItem(item)
+          }
+        }
+      }
 
       if showCheckMark {
         VStack {
