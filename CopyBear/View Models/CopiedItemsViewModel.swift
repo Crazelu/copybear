@@ -39,7 +39,7 @@ class CopiedItemsViewModel: ObservableObject {
     if let image = pasteBoard.data(forType: .png) {
       let item = CopyItem(type: .image, data: image)
       if copiedItems.contains(where: {$0 == item}) {return}
-      copiedItems.append(item)
+      copiedItems.insert(item, at: 0)
       if let category = categories.first(where: { $0.type == CopyItemType.image }) {
         category.addItem(item)
         return
@@ -59,7 +59,7 @@ class CopiedItemsViewModel: ObservableObject {
             let imageItem = CopyItem(type: .image, data: imageData, fileUrl: file)
             if copiedItems.contains(where: {$0 == imageItem}) {return}
             category.addItem(imageItem)
-            copiedItems.append(imageItem)
+            copiedItems.insert(imageItem, at: 0)
             return
           }
         } catch {
@@ -67,7 +67,7 @@ class CopiedItemsViewModel: ObservableObject {
         }
       }
 
-      copiedItems.append(item)
+      copiedItems.insert(item, at: 0)
       if let category = categories.first(where: { $0.type == CopyItemType.other }) {
         category.addItem(item)
         return
@@ -78,7 +78,7 @@ class CopiedItemsViewModel: ObservableObject {
       let itemType: CopyItemType = text.content.isURL ? .link : .text
       let item = CopyItem(type: itemType, data: text)
       if copiedItems.contains(where: {$0 == item}) {return}
-      copiedItems.append(item)
+      copiedItems.insert(item, at: 0)
       if let category = categories.first(where: {$0.type == itemType}) {
         category.addItem(item)
       }

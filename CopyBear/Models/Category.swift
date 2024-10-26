@@ -17,6 +17,6 @@ public class Category {
   }
 
   func addItem(_ item: CopyItem) {
-    items.append(item)
+    items.insert(item, at: 0)
   }
 }
