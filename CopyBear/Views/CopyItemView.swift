@@ -12,12 +12,9 @@ struct CopyItemView: View {
   var backgroundColor: Color
 
   @EnvironmentObject var vm: CopiedItemsViewModel
-  @Environment(\.colorScheme) var colorScheme
   @State var showCheckMark = false
 
-  private var showCheckMarkOpacity: Double {
-    colorScheme == .dark ? 0.2 : 0.5
-  }
+  var showCheckMarkOpacity = 0.2
 
   @ViewBuilder private var copiedItemView: some View {
     switch item.type {
@@ -58,9 +55,15 @@ struct CopyItemView: View {
         }.opacity(showCheckMark ? showCheckMarkOpacity : 1.0)
 
       if showCheckMark {
-        Image(systemName: "checkmark")
-          .font(.title)
-          .foregroundStyle(.white)
+        VStack {
+          Image(systemName: "checkmark")
+            .font(.title)
+            .foregroundStyle(Constants.Colors.dropdownMenuBackground)
+            .padding([.bottom], 4)
+          Text("Copied")
+            .font(.body)
+            .foregroundStyle(Constants.Colors.dropdownMenuBackground)
+        }
       }
     }
   }
