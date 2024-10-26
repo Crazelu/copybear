@@ -156,4 +156,9 @@ class CopiedItemsViewModel: ObservableObject {
     navigationDestination = NavigationDestination.home
     selectedCategory = nil
   }
+
+  func goBackHomeAndShowAll() {
+    goBackHome()
+    viewType = .all
+  }
 }

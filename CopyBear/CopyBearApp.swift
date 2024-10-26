@@ -73,6 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       if popover.isShown {
         popover.performClose(nil)
       } else {
+        vm.goBackHomeAndShowAll()
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         NSApp.activate(ignoringOtherApps: true)
       }
