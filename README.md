@@ -17,5 +17,5 @@ Well, the mental note sure didn't stick. I CMD+C'd another stuff and lost my rea
 ## Features  ✨
 - [x] Clipboard history for texts, URLs, images, videos, documents and other files. If you can CMD + C it, CopyBear should be able to track it.
 - [x] Auto launch startup. CopyBear registers itself as a login item so that when your computer is restarted, CopyBear launches in the background to keep tracking your clipboard history.
-- [x] Open/close CopyBear from anywhere with CMD + SHIFT + V
+- [x] Open/close CopyBear from anywhere with customizable shortcuts.
 - [x] CTRL + click on the menu bar icon to quit.
