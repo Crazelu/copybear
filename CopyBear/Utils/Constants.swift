@@ -21,6 +21,7 @@ enum Constants {
     static let iconColor = Color("IconColor")
     static let cardColor = Color("CardColor")
     static let subtitleTextColor = Color("SubtitleTextColor")
+    static let keyBackgroundColor = Color("KeyBackgroundColor")
   }
 
   enum Icons {
@@ -29,5 +30,6 @@ enum Constants {
     static let imageCategoryIcon = "ImageCategoryIcon"
     static let otherCategoryIcon = "OtherCategoryIcon"
     static let linkCategoryIcon = "LinkCategoryIcon"
+    static let settingsIcon = "SettingsIcon"
   }
 }

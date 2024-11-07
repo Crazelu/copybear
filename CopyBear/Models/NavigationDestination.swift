@@ -8,4 +8,5 @@
 enum NavigationDestination {
   case home
   case category
+  case settings
 }

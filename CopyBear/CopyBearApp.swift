@@ -23,15 +23,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var popover: NSPopover!
   var keyCommand: EventHotKeyRef?
   let vm = CopiedItemsViewModel()
+  let shortcutViewModel = ShortcutViewModel()
   let defaults = UserDefaults.standard
   let versionKey = "CopyBearVersion"
 
   func applicationDidFinishLaunching(_ notification: Notification) {
+    shortcutViewModel.setAppDelegate(self)
     try? SMAppService.mainApp.register()
     checkInstalledVersionAndUpdateLoginItem()
     vm.listenForCopyEvent()
     setupMenuBar()
-    registerHotKey()
   }
 
   // Updates login item when an updated version of the app is opened
@@ -65,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     popover = NSPopover()
     popover.behavior = .transient
     popover.contentViewController = NSViewController()
-    popover.contentViewController?.view = NSHostingView(rootView:ContentView().environmentObject(vm))
+    popover.contentViewController?.view = NSHostingView(rootView: ContentView().environmentObject(vm).environmentObject(shortcutViewModel))
   }
 
   @objc func togglePopover() {
@@ -104,34 +105,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   private func getAppVersion() -> String? {
     Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-  }
-
-  private func registerHotKey() {
-    var hotKeyID = EventHotKeyID()
-    hotKeyID.signature = OSType(0x1234)
-    hotKeyID.id = UInt32(1)
-
-    let modifierFlags: UInt32 = UInt32(cmdKey | shiftKey)
-    let keyCode: UInt32 = 9 // 'V' key
-
-    RegisterEventHotKey(keyCode, modifierFlags, hotKeyID, GetApplicationEventTarget(), 0, &keyCommand)
-
-    var eventSpec = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyPressed))
-
-    InstallEventHandler(GetApplicationEventTarget(), AppDelegate.hotKeyHandler, 1, &eventSpec, UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()), nil)
-  }
-
-  static let hotKeyHandler: EventHandlerUPP = { (nextHandler, theEvent, userData) -> OSStatus in
-    var hotKeyID = EventHotKeyID()
-    GetEventParameter(theEvent, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil, MemoryLayout<EventHotKeyID>.size, nil, &hotKeyID)
-
-    if hotKeyID.id == 1 {
-      let appDelegate = Unmanaged<AppDelegate>.fromOpaque(userData!).takeUnretainedValue()
-      DispatchQueue.main.async {
-        appDelegate.togglePopover()
-      }
-    }
-
-    return noErr
   }
 }

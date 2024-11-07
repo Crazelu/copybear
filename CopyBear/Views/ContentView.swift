@@ -14,6 +14,7 @@ struct ContentView: View {
     ZStack {
       switch vm.navigationDestination {
       case .home: HomeView()
+      case .settings: SettingsView()
       case .category:
         if vm.selectedCategory != nil {
           CategoryContentView(category: .init(get: {

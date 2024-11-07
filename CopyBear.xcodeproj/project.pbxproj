@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF608AE12CD95FBF00308F1C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF608AE02CD95FB600308F1C /* BackButton.swift */; };
 		FFDA6A472CB45B5B0004ADF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDA6A402CB45B5B0004ADF2 /* Preview Assets.xcassets */; };
 		FFDA6A482CB45B5B0004ADF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDA6A422CB45B5B0004ADF2 /* Assets.xcassets */; };
 		FFDA6A4A2CB45B5B0004ADF2 /* CopyBearApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A452CB45B5B0004ADF2 /* CopyBearApp.swift */; };
@@ -27,6 +28,8 @@
 		FFDA6A6C2CBB5D8F0004ADF2 /* CategoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A6B2CBB5D890004ADF2 /* CategoryContentView.swift */; };
 		FFDA6A6E2CBB60F20004ADF2 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A6D2CBB60EC0004ADF2 /* NavigationDestination.swift */; };
 		FFDA6A702CBB62690004ADF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */; };
+		FFF5F2D32CCD0CDF001C8341 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5F2D22CCD0CD9001C8341 /* SettingsView.swift */; };
+		FFF5F2D72CCD2916001C8341 /* ShortcutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF608AE02CD95FB600308F1C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		FFDA6A122CB45B530004ADF2 /* CopyBear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyBear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA6A232CB45B540004ADF2 /* CopyBearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyBearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA6A2D2CB45B540004ADF2 /* CopyBearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyBearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +75,8 @@
 		FFDA6A6B2CBB5D890004ADF2 /* CategoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentView.swift; sourceTree = "<group>"; };
 		FFDA6A6D2CBB60EC0004ADF2 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FFF5F2D22CCD0CD9001C8341 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -157,6 +163,8 @@
 		FFDA6A4B2CB45B620004ADF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF608AE02CD95FB600308F1C /* BackButton.swift */,
+				FFF5F2D22CCD0CD9001C8341 /* SettingsView.swift */,
 				FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */,
 				FFDA6A6B2CBB5D890004ADF2 /* CategoryContentView.swift */,
 				FFDA6A692CBB55B70004ADF2 /* CategoryCardView.swift */,
@@ -173,6 +181,7 @@
 		FFDA6A4C2CB45B690004ADF2 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */,
 				FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */,
 			);
 			path = "View Models";
@@ -344,11 +353,14 @@
 			files = (
 				FFDA6A682CBB43EE0004ADF2 /* Utility.swift in Sources */,
 				FFDA6A5A2CBB07130004ADF2 /* ViewType.swift in Sources */,
+				FFF5F2D32CCD0CDF001C8341 /* SettingsView.swift in Sources */,
 				FFDA6A662CBB2B650004ADF2 /* CopyItem.swift in Sources */,
 				FFDA6A502CB45BA30004ADF2 /* HomeView.swift in Sources */,
+				FF608AE12CD95FBF00308F1C /* BackButton.swift in Sources */,
 				FFDA6A522CB45BBC0004ADF2 /* CopiedItemsViewModel.swift in Sources */,
 				FFDA6A5E2CBB1BB20004ADF2 /* AllCopiedItemsView.swift in Sources */,
 				FFDA6A542CBAFC6F0004ADF2 /* CopyBearLogoHeader.swift in Sources */,
+				FFF5F2D72CCD2916001C8341 /* ShortcutViewModel.swift in Sources */,
 				FFDA6A6A2CBB55BB0004ADF2 /* CategoryCardView.swift in Sources */,
 				FFDA6A6C2CBB5D8F0004ADF2 /* CategoryContentView.swift in Sources */,
 				FFDA6A642CBB28C60004ADF2 /* CopyItemType.swift in Sources */,
@@ -534,7 +546,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devcrazelu.CopyBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -565,7 +577,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devcrazelu.CopyBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

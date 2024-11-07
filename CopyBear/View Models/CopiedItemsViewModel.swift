@@ -170,4 +170,8 @@ class CopiedItemsViewModel: ObservableObject {
     goBackHome()
     viewType = .all
   }
+
+  func openSettings() {
+    navigationDestination = NavigationDestination.settings
+  }
 }

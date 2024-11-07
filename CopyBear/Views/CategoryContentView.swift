@@ -23,18 +23,8 @@ struct CategoryContentView: View {
         CopyBearLogoHeader()
 
           HStack(alignment: .top) {
-            HStack(spacing: 5) {
-              Image(systemName: "chevron.left")
-                .font(.body)
-              Text(category.title)
-                .font(.title3)
-                .fontWeight(.medium)
-            }
-            .contentShape(Rectangle())
-            .onTapGesture {
-              withAnimation {
-                vm.goBackHome()
-              }
+            BackButton(title: category.title) {
+              vm.goBackHome()
             }
 
             Spacer()
