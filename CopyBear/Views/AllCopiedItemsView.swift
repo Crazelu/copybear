@@ -16,11 +16,15 @@ struct AllCopiedItemsView: View {
     GridItem(.flexible())
   ]
 
+  private var items: [CopyItem] {
+    vm.isSearching ? vm.searchResults : vm.copiedItems
+  }
+
   var body: some View {
     LazyVGrid(columns: columns) {
-      ForEach(0..<vm.copiedItems.count, id: \.self) { index in
+      ForEach(0..<items.count, id: \.self) { index in
         CopyItemView(
-          item: vm.copiedItems[index],
+          item: items[index],
           backgroundColor: index.color
         )
       }

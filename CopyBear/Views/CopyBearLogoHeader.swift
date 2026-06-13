@@ -30,6 +30,17 @@ struct CopyBearLogoHeader: View {
       if showAction {
         Button(action: {
           withAnimation {
+            vm.toggleSearch()
+          }
+        }){
+          Image(systemName: "magnifyingglass")
+            .resizable()
+            .frame(width: 20, height: 20)
+        }
+        .buttonStyle(.plain)
+
+        Button(action: {
+          withAnimation {
             vm.openSettings()
           }
         }) {
