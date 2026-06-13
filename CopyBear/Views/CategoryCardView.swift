@@ -17,7 +17,7 @@ struct CategoryCardView: View {
     switch category.type {
     case .text: subtitle = itemCount == 1 ? "Copy" : "Copies"
       case .other: subtitle = itemCount == 1 ? "File" : "Files"
-      case .image: subtitle = itemCount == 1 ? "Photo" : "Photos"
+      case .image: subtitle = itemCount == 1 ? "Image" : "Images"
       case .link: subtitle = itemCount == 1 ? "Link" : "Links"
     }
     return "\(itemCount) \(subtitle)"

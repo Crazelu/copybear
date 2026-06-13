@@ -68,7 +68,7 @@ extension Category {
   var title: String {
     var title: String
     switch type {
-    case .image: title = "Photos"
+    case .image: title = "Images"
     case .text: title = "Text"
     case .other: title = "Others"
     case .link: title = "Links"
