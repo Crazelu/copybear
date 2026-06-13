@@ -38,7 +38,7 @@ class CopiedItemsViewModel: ObservableObject {
 
     if let image = pasteBoard.data(forType: .png) {
       let item = CopyItem(type: .image, data: image)
-      if copiedItems.contains(where: {$0 == item}) {return}
+      if copiedItems.contains(where: {$0 == item}) { moveItemToFront(item); return }
       copiedItems.insert(item, at: 0)
       if let category = categories.first(where: { $0.type == CopyItemType.image }) {
         category.addItem(item)
@@ -48,7 +48,7 @@ class CopiedItemsViewModel: ObservableObject {
 
     if let file = pasteBoard.data(forType: .fileURL), let fileName = pasteBoard.data(forType: .string) {
       let item = CopyItem(type: .other, data: file, name: fileName.content)
-      if copiedItems.contains(where: {$0 == item || $0.fileUrl == file }) {return}
+      if let existingItem = copiedItems.first(where: {$0 == item || $0.fileUrl == file }) { moveItemToFront(existingItem); return }
 
 
       // check if file is an image
@@ -57,7 +57,7 @@ class CopiedItemsViewModel: ObservableObject {
           let imageData = try Data(contentsOf: URL(filePath: file.stripped))
           if let category = categories.first(where: { $0.type == CopyItemType.image }) {
             let imageItem = CopyItem(type: .image, data: imageData, fileUrl: file)
-            if copiedItems.contains(where: {$0 == imageItem}) {return}
+            if copiedItems.contains(where: {$0 == imageItem}) { moveItemToFront(imageItem); return }
             category.addItem(imageItem)
             copiedItems.insert(imageItem, at: 0)
             return
@@ -77,11 +77,24 @@ class CopiedItemsViewModel: ObservableObject {
     if let text = pasteBoard.data(forType: .string) {
       let itemType: CopyItemType = text.content.isURL ? .link : .text
       let item = CopyItem(type: itemType, data: text)
-      if copiedItems.contains(where: {$0 == item}) {return}
+      if copiedItems.contains(where: {$0 == item}) { moveItemToFront(item); return }
       copiedItems.insert(item, at: 0)
       if let category = categories.first(where: {$0.type == itemType}) {
         category.addItem(item)
       }
+    }
+  }
+
+  private func moveItemToFront(_ item: CopyItem) {
+    if let existingIndex = copiedItems.firstIndex(where: {$0 == item}) {
+      let existingItem = copiedItems.remove(at: existingIndex)
+      copiedItems.insert(existingItem, at: 0)
+    }
+
+    if let category = categories.first(where: {$0.type == item.type}),
+       let categoryIndex = category.items.firstIndex(where: {$0 == item}) {
+      let existingItem = category.items.remove(at: categoryIndex)
+      category.items.insert(existingItem, at: 0)
     }
   }
 
