@@ -14,7 +14,7 @@ extension String {
   }
 
   var isImage: Bool {
-    ["png", "jpg", "webp", "jpeg", "gif", "heic", "avif", "tiff", "ico", "psd", "exr"].contains(self.lowercased())
+    ["png", "jpg", "webp", "jpeg", "gif", "heic", "avif", "tiff", "ico", "psd", "exr", "svg"].contains(self.lowercased())
   }
 
   var isURL: Bool {
