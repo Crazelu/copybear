@@ -3,6 +3,8 @@
 <h1>Install CopyBear</h1>
 </div>
 
+After downloading CopyBear from [releases](https://github.com/Crazelu/copybear/releases), unzip and click to open the app on your Mac.
+
 The app is codesigned with ad-hoc feature therefore users need to allow the Gatekeeper to open apps from an unknown developer.
 Follow the steps [here](https://support.apple.com/en-ng/guide/mac-help/mh40616/mac) for your macOS version.
 
