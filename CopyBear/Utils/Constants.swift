@@ -32,4 +32,12 @@ enum Constants {
     static let linkCategoryIcon = "LinkCategoryIcon"
     static let settingsIcon = "SettingsIcon"
   }
+
+  enum Strings {
+    static let deleteAfterDays = "deleteAfterDays"
+  }
+
+  enum Numbers {
+    static let defaultStalePeriodInDays = 3
+  }
 }

@@ -9,19 +9,19 @@ import SwiftUI
 
 class CopiedItemsViewModel: ObservableObject {
   let pasteBoard = NSPasteboard.general
-
+  
   @Published var navigationDestination: NavigationDestination = NavigationDestination.home
   @Published var selectedCategory: Category?
-
+  
   @Published var viewType: ViewType = ViewType.all
-
+  
   // Whether to care about a copy event.
   // This will be set to true when a copy action is initiated by the app
   // which will be for an item already in history. So we won't need to add another entry.
   private var doNotHonorCopy = false
-
+  
   private var changeCount: Int = -1
-
+  
   @Published var copiedItems: [CopyItem] = []
   @Published var categories: [Category] = [
     Category(type: .text),
@@ -31,22 +31,22 @@ class CopiedItemsViewModel: ObservableObject {
   ]
   @Published var isSearching: Bool = false
   @Published var searchResults: [CopyItem] = []
-
+  
   private var searchQuery = ""
-
+  
   private func addCopyItem(_ item: CopyItem) {
     copiedItems.insert(item, at: 0)
     if isSearching {
       searchItems(with: searchQuery)
     }
   }
-
+  
   private func getLastCopiedItem() {
     if doNotHonorCopy {
       doNotHonorCopy.toggle()
       return
     }
-
+    
     if let image = pasteBoard.data(forType: .png), let fileName = pasteBoard.data(forType: .string)  {
       let item = CopyItem(type: .image, data: image, name: fileName.content)
       if copiedItems.contains(where: {$0 == item}) { moveItemToFront(item); return }
@@ -56,12 +56,12 @@ class CopiedItemsViewModel: ObservableObject {
         return
       }
     }
-
+    
     if let file = pasteBoard.data(forType: .fileURL), let fileName = pasteBoard.data(forType: .string) {
       let item = CopyItem(type: .other, data: file, name: fileName.content)
       if let existingItem = copiedItems.first(where: {$0 == item || $0.fileUrl == file }) { moveItemToFront(existingItem); return }
-
-
+      
+      
       // check if file is an image
       if fileName.content.fileExtension.isImage {
         do {
@@ -77,14 +77,14 @@ class CopiedItemsViewModel: ObservableObject {
           print(error.localizedDescription)
         }
       }
-
+      
       addCopyItem(item)
       if let category = categories.first(where: { $0.type == CopyItemType.other }) {
         category.addItem(item)
         return
       }
     }
-
+    
     if let text = pasteBoard.data(forType: .string) {
       let itemType: CopyItemType = text.content.isURL ? .link : .text
       let item = CopyItem(type: itemType, data: text)
@@ -95,32 +95,35 @@ class CopiedItemsViewModel: ObservableObject {
       }
     }
   }
-
+  
   private func moveItemToFront(_ item: CopyItem) {
+    var updatedItem: CopyItem?
     if let existingIndex = copiedItems.firstIndex(where: {$0 == item}) {
-      let existingItem = copiedItems.remove(at: existingIndex)
-      copiedItems.insert(existingItem, at: 0)
+      var existingItem = copiedItems.remove(at: existingIndex)
+      existingItem.date = Date()
+      updatedItem = existingItem
+      addCopyItem(existingItem)
     }
-
+    
     if let category = categories.first(where: {$0.type == item.type}),
        let categoryIndex = category.items.firstIndex(where: {$0 == item}) {
       let existingItem = category.items.remove(at: categoryIndex)
-      category.items.insert(existingItem, at: 0)
+      if let newItem = updatedItem {category.items.insert(newItem, at: 0)}
     }
   }
-
+  
   private func sortCategories() {
     categories.sort { a, b in
       a.items.count > b.items.count
     }
   }
-
+  
   func toggleSearch() {
     isSearching.toggle()
     searchItems(with: "")
     selectedCategory = nil
   }
-
+  
   func searchItems(with query: String) {
     searchQuery = query
     if query.isEmpty {
@@ -135,12 +138,35 @@ class CopiedItemsViewModel: ObservableObject {
         return item.name?.localizedCaseInsensitiveContains(query) ?? false      }
     }
   }
-
+  
+  func deleteExpiredItems() {
+    var deleteAfterDays = UserDefaults.standard.integer(forKey: Constants.Strings.deleteAfterDays)
+    if deleteAfterDays <= 0 {
+      deleteAfterDays = Constants.Numbers.defaultStalePeriodInDays
+    }
+    
+    let cutoffDate = Date().addingTimeInterval(Double(deleteAfterDays) * 86400)
+    let expiredItems = copiedItems.filter { $0.date < cutoffDate }
+    
+    for item in expiredItems {
+      copiedItems.removeAll(where: {$0 == item})
+      if let category = categories.first(where: {$0.items.contains(item)}) {
+        category.items.removeAll(where: {$0 == item})
+      }
+    }
+    
+    if !expiredItems.isEmpty {
+      sortCategories()
+      searchItems(with: searchQuery)
+    }
+  }
+  
   func listenForCopyEvent() {
     changeCount = pasteBoard.changeCount
     getLastCopiedItem()
     sortCategories()
-
+    deleteExpiredItems()
+    
     Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
       let newChangeCount = self.pasteBoard.changeCount
       if newChangeCount > self.changeCount {
@@ -149,8 +175,12 @@ class CopiedItemsViewModel: ObservableObject {
         self.sortCategories()
       }
     }
+    
+    Timer.scheduledTimer(withTimeInterval: 60.0 * 24, repeats: true) { _ in
+      self.deleteExpiredItems()
+    }
   }
-
+  
   func clearHistory() {
     copiedItems = []
     categories = [
@@ -161,20 +191,20 @@ class CopiedItemsViewModel: ObservableObject {
     ]
     isSearching = false
   }
-
+  
   func clearCategoryHistory(for itemType: CopyItemType) {
     copiedItems.removeAll(where: {$0.type == itemType})
-
+    
     if let category = categories.first(where: {$0.type == itemType}) {
       category.items = []
     }
     sortCategories()
   }
-
+  
   func paste(_ item: CopyItem) {
     pasteBoard.clearContents()
     var pasteBoardType: NSPasteboard.PasteboardType
-
+    
     switch item.type {
     case .text, .link:
       pasteBoardType = .string
@@ -183,7 +213,7 @@ class CopiedItemsViewModel: ObservableObject {
     case .other:
       pasteBoardType = .fileURL
     }
-
+    
     doNotHonorCopy = true
     if item.type == .image && item.fileUrl != nil {
       pasteBoard.setData(item.fileUrl!, forType: .fileURL)
@@ -191,16 +221,16 @@ class CopiedItemsViewModel: ObservableObject {
       pasteBoard.setData(item.data, forType: pasteBoardType)
     }
   }
-
+  
   func selectCategory(_ category: Category) {
     selectedCategory = category
     navigationDestination = NavigationDestination.category
   }
-
+  
   func deleteItem(_ item: CopyItem) {
     copiedItems.removeAll(where: {$0 == item})
     searchResults.removeAll(where: {$0 == item})
-
+    
     if let category = categories.first(where: {$0.items.contains(item)}) {
       category.items.removeAll(where: {$0 == item})
     }
@@ -209,17 +239,17 @@ class CopiedItemsViewModel: ObservableObject {
       isSearching = false
     }
   }
-
+  
   func goBackHome() {
     navigationDestination = NavigationDestination.home
     selectedCategory = nil
   }
-
+  
   func goBackHomeAndShowAll() {
     goBackHome()
     viewType = .all
   }
-
+  
   func openSettings() {
     navigationDestination = NavigationDestination.settings
   }
