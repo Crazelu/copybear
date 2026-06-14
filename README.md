@@ -6,6 +6,8 @@ A macOS menu bar app that tracks clipboard history so you can go back in time an
 
 Originally designed by [Queen Esther](https://www.behance.net/queeneopuruic1).
 
+Download the latest [release](https://github.com/Crazelu/copybear/releases) and follow the [installation guide](https://github.com/Crazelu/copybear/blob/main/InstallationGuide.md) to install on your Mac.
+
 ## Why CopyBear ⁉️
 I spent some time writing a really good description for a merge request at work but needed to make a few little changes before creating the MR so I decided against creating a draft MR (rookie mistake). Instead, I copied the description and made a mental note to avoid copying any other thing until after I create the MR.
 
