@@ -145,7 +145,7 @@ class CopiedItemsViewModel: ObservableObject {
       deleteAfterDays = Constants.Numbers.defaultStalePeriodInDays
     }
     
-    let cutoffDate = Date().addingTimeInterval(Double(deleteAfterDays) * 86400)
+    let cutoffDate = Date().addingTimeInterval(-Double(deleteAfterDays) * 86400)
     let expiredItems = copiedItems.filter { $0.date < cutoffDate }
     
     for item in expiredItems {
