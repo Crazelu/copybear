@@ -4,7 +4,7 @@
 </div>
 A macOS menu bar app that tracks clipboard history so you can go back in time and find anything you copied.
 
-Designed by [Queen Esther](https://www.behance.net/queeneopuruic1).
+Originally designed by [Queen Esther](https://www.behance.net/queeneopuruic1).
 
 ## Why CopyBear ⁉️
 I spent some time writing a really good description for a merge request at work but needed to make a few little changes before creating the MR so I decided against creating a draft MR (rookie mistake). Instead, I copied the description and made a mental note to avoid copying any other thing until after I create the MR.
@@ -18,4 +18,6 @@ Well, the mental note sure didn't stick. I CMD+C'd another stuff and lost my rea
 - [x] Clipboard history for texts, URLs, images, videos, documents and other files. If you can CMD + C it, CopyBear should be able to track it.
 - [x] Auto launch startup. CopyBear registers itself as a login item so that when your computer is restarted, CopyBear launches in the background to keep tracking your clipboard history.
 - [x] Open/close CopyBear from anywhere with customizable shortcuts.
+- [x] Search to find items easily.
+- [x] Auto-deletion of items after a configurable period of staleness.
 - [x] CTRL + click on the menu bar icon to quit.

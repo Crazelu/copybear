@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF5BBCC82FDE43840025CC9E /* InstallationGuide.md in Resources */ = {isa = PBXBuildFile; fileRef = FF5BBCC72FDE43840025CC9E /* InstallationGuide.md */; };
 		FF608AE12CD95FBF00308F1C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF608AE02CD95FB600308F1C /* BackButton.swift */; };
 		FFDA6A472CB45B5B0004ADF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDA6A402CB45B5B0004ADF2 /* Preview Assets.xcassets */; };
 		FFDA6A482CB45B5B0004ADF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDA6A422CB45B5B0004ADF2 /* Assets.xcassets */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF5BBCC62FDE437A0025CC9E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FF5BBCC72FDE43840025CC9E /* InstallationGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = InstallationGuide.md; sourceTree = "<group>"; };
 		FF608AE02CD95FB600308F1C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		FFDA6A122CB45B530004ADF2 /* CopyBear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyBear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA6A232CB45B540004ADF2 /* CopyBearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyBearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +127,8 @@
 				FFDA6A262CB45B540004ADF2 /* CopyBearTests */,
 				FFDA6A302CB45B540004ADF2 /* CopyBearUITests */,
 				FFDA6A132CB45B530004ADF2 /* Products */,
+				FF5BBCC62FDE437A0025CC9E /* README.md */,
+				FF5BBCC72FDE43840025CC9E /* InstallationGuide.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5BBCC82FDE43840025CC9E /* InstallationGuide.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +552,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devcrazelu.CopyBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -577,7 +583,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0.0;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devcrazelu.CopyBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
