@@ -10,15 +10,15 @@ import SwiftUI
 struct CopyBearLogoHeader: View {
   let showAction: Bool
   @EnvironmentObject var vm: CopiedItemsViewModel
-
-    init() {
-      self.showAction = true
-    }
-
-    init(hideAction: Bool) {
-      self.showAction = !hideAction
-    }
-
+  
+  init() {
+    self.showAction = true
+  }
+  
+  init(hideAction: Bool) {
+    self.showAction = !hideAction
+  }
+  
   var body: some View {
     HStack {
       Image(Constants.Icons.logo)
@@ -26,7 +26,7 @@ struct CopyBearLogoHeader: View {
         .scaledToFit()
         .frame(width: 114, height: 30)
       Spacer()
-
+      
       if showAction {
         Button(action: {
           withAnimation {
@@ -38,7 +38,7 @@ struct CopyBearLogoHeader: View {
             .frame(width: 20, height: 20)
         }
         .buttonStyle(.plain)
-
+        
         Button(action: {
           withAnimation {
             vm.openSettings()

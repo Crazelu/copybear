@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
   @EnvironmentObject var vm: CopiedItemsViewModel
   @State private var searchText = ""
-
+  
   @ViewBuilder private var contentView: some View {
     switch vm.viewType {
     case .all:
@@ -23,16 +23,16 @@ struct HomeView: View {
       }
     }
   }
-
+  
   var showEmptyState: Bool {
     vm.isSearching ? vm.searchResults.isEmpty : vm.copiedItems.isEmpty && vm.viewType == .all
   }
-
+  
   var body: some View {
     ZStack{
       VStack(alignment: .leading, spacing: 20) {
         CopyBearLogoHeader()
-
+        
         HStack(alignment: .center) {
           if vm.isSearching {
             HStack {
@@ -44,7 +44,7 @@ struct HomeView: View {
             .padding(8)
             .background(Constants.Colors.keyBackgroundColor)
             .clipShape(.rect(cornerRadius: 8))
-
+            
             Image(systemName: "xmark")
               .foregroundStyle(Constants.Colors.dropdownMenuBackground)
               .onTapGesture {
@@ -80,12 +80,12 @@ struct HomeView: View {
             vm.searchItems(with: searchText)
           }
         }
-
+        
         ScrollView {
           contentView
         }
       }
-
+      
       if showEmptyState {
         Image(systemName: "teddybear.fill")
           .resizable()
