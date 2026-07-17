@@ -18,10 +18,14 @@ extension String {
   }
 
   var isURL: Bool {
-    let urlRegex = #"^(https?:\/\/)?(www\.)?([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,6}(\/[^\s]*)?$"#
-    let regex = try? NSRegularExpression(pattern: urlRegex, options: .caseInsensitive)
+    guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else { return false }
     let range = NSRange(location: 0, length: self.utf16.count)
-    return regex?.firstMatch(in: self, options: [], range: range) != nil
+    guard let match = detector.firstMatch(in: self, options: [], range: range),
+          let url = match.url
+    else { return false }
+    // The whole string must be a link, not just contain one,
+    // and email addresses (detected as mailto links) don't count
+    return match.range == range && url.scheme != "mailto"
   }
 
 
