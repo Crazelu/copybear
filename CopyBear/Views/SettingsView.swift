@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
   @EnvironmentObject var vm: CopiedItemsViewModel
   @EnvironmentObject var shortcutVm: ShortcutViewModel
-  
+
   @State var showCheckMark = false
   @AppStorage(Constants.Strings.deleteAfterDays) var deleteAfterDays = Constants.Numbers.defaultStalePeriodInDays
   

@@ -31,6 +31,8 @@
 		FFDA6A702CBB62690004ADF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */; };
 		FFF5F2D32CCD0CDF001C8341 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5F2D22CCD0CD9001C8341 /* SettingsView.swift */; };
 		FFF5F2D72CCD2916001C8341 /* ShortcutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */; };
+		FFSPARKLE000000000000003 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FFSPARKLE000000000000002 /* Sparkle */; };
+		FFSPARKLE000000000000005 /* UpdaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFSPARKLE000000000000004 /* UpdaterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,7 @@
 		FFDA6A6F2CBB62650004ADF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FFF5F2D22CCD0CD9001C8341 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewModel.swift; sourceTree = "<group>"; };
+		FFSPARKLE000000000000004 /* UpdaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -100,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFSPARKLE000000000000003 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +192,7 @@
 			children = (
 				FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */,
 				FFDA6A512CB45BB60004ADF2 /* CopiedItemsViewModel.swift */,
+				FFSPARKLE000000000000004 /* UpdaterViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			);
 			name = CopyBear;
 			packageProductDependencies = (
+				FFSPARKLE000000000000002 /* Sparkle */,
 			);
 			productName = CopyBear;
 			productReference = FFDA6A122CB45B530004ADF2 /* CopyBear.app */;
@@ -313,6 +319,9 @@
 			);
 			mainGroup = FFDA6A092CB45B530004ADF2;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FFSPARKLE000000000000001 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FFDA6A132CB45B530004ADF2 /* Products */;
 			projectDirPath = "";
@@ -367,6 +376,7 @@
 				FFDA6A5E2CBB1BB20004ADF2 /* AllCopiedItemsView.swift in Sources */,
 				FFDA6A542CBAFC6F0004ADF2 /* CopyBearLogoHeader.swift in Sources */,
 				FFF5F2D72CCD2916001C8341 /* ShortcutViewModel.swift in Sources */,
+				FFSPARKLE000000000000005 /* UpdaterViewModel.swift in Sources */,
 				FFDA6A6A2CBB55BB0004ADF2 /* CategoryCardView.swift in Sources */,
 				FFDA6A6C2CBB5D8F0004ADF2 /* CategoryContentView.swift in Sources */,
 				FFDA6A642CBB28C60004ADF2 /* CopyItemType.swift in Sources */,
@@ -549,6 +559,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CopyBear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CopyBear;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -580,6 +591,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CopyBear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CopyBear;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -705,6 +717,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFSPARKLE000000000000001 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFSPARKLE000000000000002 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFSPARKLE000000000000001 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFDA6A0A2CB45B530004ADF2 /* Project object */;
 }

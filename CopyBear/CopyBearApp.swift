@@ -24,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var keyCommand: EventHotKeyRef?
   let vm = CopiedItemsViewModel()
   let shortcutViewModel = ShortcutViewModel()
+  let updaterViewModel = UpdaterViewModel()
   let defaults = UserDefaults.standard
   let versionKey = "CopyBearVersion"
 
@@ -66,7 +67,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     popover = NSPopover()
     popover.behavior = .transient
     popover.contentViewController = NSViewController()
-    popover.contentViewController?.view = NSHostingView(rootView: ContentView().environmentObject(vm).environmentObject(shortcutViewModel))
+    popover.contentViewController?.view = NSHostingView(rootView: ContentView().environmentObject(vm).environmentObject(shortcutViewModel).environmentObject(updaterViewModel))
   }
 
   @objc func togglePopover() {
