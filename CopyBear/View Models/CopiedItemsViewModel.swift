@@ -220,7 +220,7 @@ class CopiedItemsViewModel: ObservableObject {
       }
     }
 
-    Timer.scheduledTimer(withTimeInterval: 60.0 * 24, repeats: true) { _ in
+    Timer.scheduledTimer(withTimeInterval: 60 * 60 * 24, repeats: true) { _ in
       self.deleteExpiredItems()
     }
   }
