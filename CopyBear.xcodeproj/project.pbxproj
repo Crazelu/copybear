@@ -55,7 +55,6 @@
 /* Begin PBXFileReference section */
 		FF5BBCC62FDE437A0025CC9E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FF5BBCC72FDE43840025CC9E /* InstallationGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = InstallationGuide.md; sourceTree = "<group>"; };
-		FFSPARKLE000000000000006 /* ReleaseGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseGuide.md; sourceTree = "<group>"; };
 		FF608AE02CD95FB600308F1C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		FFDA6A122CB45B530004ADF2 /* CopyBear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyBear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA6A232CB45B540004ADF2 /* CopyBearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyBearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +83,8 @@
 		FFF5F2D22CCD0CD9001C8341 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewModel.swift; sourceTree = "<group>"; };
 		FFSPARKLE000000000000004 /* UpdaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterViewModel.swift; sourceTree = "<group>"; };
+		FFSPARKLE000000000000006 /* ReleaseGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseGuide.md; sourceTree = "<group>"; };
+		FFSPARKLE000000000000007 /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -135,6 +136,7 @@
 				FF5BBCC62FDE437A0025CC9E /* README.md */,
 				FF5BBCC72FDE43840025CC9E /* InstallationGuide.md */,
 				FFSPARKLE000000000000006 /* ReleaseGuide.md */,
+				FFSPARKLE000000000000007 /* appcast.xml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -555,7 +557,7 @@
 				CODE_SIGN_ENTITLEMENTS = CopyBear/CopyBear.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CopyBear/Preview Content\"";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -571,7 +573,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0.0;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devcrazelu.CopyBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -587,7 +589,7 @@
 				CODE_SIGN_ENTITLEMENTS = CopyBear/CopyBear.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CopyBear/Preview Content\"";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -603,7 +605,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0.0;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devcrazelu.CopyBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
