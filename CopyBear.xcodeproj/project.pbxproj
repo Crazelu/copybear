@@ -33,6 +33,7 @@
 		FFF5F2D72CCD2916001C8341 /* ShortcutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5F2D62CCD2910001C8341 /* ShortcutViewModel.swift */; };
 		FFSPARKLE000000000000003 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = FFSPARKLE000000000000002 /* Sparkle */; };
 		FFSPARKLE000000000000005 /* UpdaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFSPARKLE000000000000004 /* UpdaterViewModel.swift */; };
+		FFSPARKLE000000000000009 /* CopyItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFSPARKLE000000000000008 /* CopyItemStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		FFSPARKLE000000000000004 /* UpdaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterViewModel.swift; sourceTree = "<group>"; };
 		FFSPARKLE000000000000006 /* ReleaseGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseGuide.md; sourceTree = "<group>"; };
 		FFSPARKLE000000000000007 /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
+		FFSPARKLE000000000000008 /* CopyItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyItemStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -206,6 +208,7 @@
 			children = (
 				FFDA6A672CBB43E30004ADF2 /* Utility.swift */,
 				FFDA6A562CBB00C60004ADF2 /* Constants.swift */,
+				FFSPARKLE000000000000008 /* CopyItemStore.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				FFDA6A542CBAFC6F0004ADF2 /* CopyBearLogoHeader.swift in Sources */,
 				FFF5F2D72CCD2916001C8341 /* ShortcutViewModel.swift in Sources */,
 				FFSPARKLE000000000000005 /* UpdaterViewModel.swift in Sources */,
+				FFSPARKLE000000000000009 /* CopyItemStore.swift in Sources */,
 				FFDA6A6A2CBB55BB0004ADF2 /* CategoryCardView.swift in Sources */,
 				FFDA6A6C2CBB5D8F0004ADF2 /* CategoryContentView.swift in Sources */,
 				FFDA6A642CBB28C60004ADF2 /* CopyItemType.swift in Sources */,

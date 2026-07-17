@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CopyItem: Equatable {
+struct CopyItem: Equatable, Codable {
   let type: CopyItemType
   let data: Data
   let fileUrl: Data?

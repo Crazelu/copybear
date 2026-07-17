@@ -28,6 +28,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   let defaults = UserDefaults.standard
   let versionKey = "CopyBearVersion"
 
+  func applicationWillTerminate(_ notification: Notification) {
+    vm.persist()
+  }
+
   func applicationDidFinishLaunching(_ notification: Notification) {
     shortcutViewModel.setAppDelegate(self)
     try? SMAppService.mainApp.register()

@@ -5,7 +5,7 @@
 //  Created by LUCKY EBERE on 12/10/2024.
 //
 
-enum CopyItemType {
+enum CopyItemType: String, Codable {
   case text
   case image
   case link
