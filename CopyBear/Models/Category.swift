@@ -17,6 +17,8 @@ public class Category {
   }
 
   func addItem(_ item: CopyItem) {
-    items.insert(item, at: 0)
+    // Pinned items stay in a pinned section at the front of the list
+    let index = item.isPinned ? 0 : (items.firstIndex(where: { !$0.isPinned }) ?? items.count)
+    items.insert(item, at: index)
   }
 }

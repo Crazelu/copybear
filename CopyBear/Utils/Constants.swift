@@ -17,6 +17,7 @@ enum Constants {
     static let green = Color("LightGreen")
     static let orange = Color("MutedOrange")
     static let textColor = Color("TextColor")
+    static let adaptiveTextColor = Color("AdaptiveTextColor")
     static let dropdownMenuBackground = Color("DropDownMenuBackgroundColor")
     static let iconColor = Color("IconColor")
     static let cardColor = Color("CardColor")
@@ -30,7 +31,6 @@ enum Constants {
     static let imageCategoryIcon = "ImageCategoryIcon"
     static let otherCategoryIcon = "OtherCategoryIcon"
     static let linkCategoryIcon = "LinkCategoryIcon"
-    static let settingsIcon = "SettingsIcon"
   }
 
   enum Strings {

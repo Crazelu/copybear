@@ -13,8 +13,8 @@ struct CopyItemView: View {
 
   @EnvironmentObject var vm: CopiedItemsViewModel
   @State var showCheckMark = false
-  @State private var showDeleteAction = false
-  @State var deletionTimer: Timer?
+  @State private var showActions = false
+  @State var actionsTimer: Timer?
 
   var showCheckMarkOpacity = 0.2
 
@@ -44,19 +44,19 @@ struct CopyItemView: View {
   var longPress: some Gesture {
     LongPressGesture(minimumDuration: 0.1)
       .onEnded { _ in
-        showDeleteAction.toggle()
-        self.deletionTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-          hideDeleteAction()
+        showActions.toggle()
+        self.actionsTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+          hideActions()
         }
       }
   }
 
-  private func hideDeleteAction() {
-    if deletionTimer?.isValid == true {
+  private func hideActions() {
+    if actionsTimer?.isValid == true {
       withAnimation {
-        deletionTimer?.invalidate()
-        showDeleteAction.toggle()
-        deletionTimer = nil
+        actionsTimer?.invalidate()
+        showActions.toggle()
+        actionsTimer = nil
       }
     }
   }
@@ -65,6 +65,16 @@ struct CopyItemView: View {
     ZStack {
       copiedItemView
         .clipShape(.rect(cornerRadius: 10))
+        .overlay(alignment: .topTrailing) {
+          if item.isPinned {
+            Image(systemName: "pin")
+              .font(.caption)
+              .foregroundStyle(Constants.Colors.textColor)
+              .padding(4)
+              .background(.thinMaterial, in: Circle())
+              .padding(4)
+          }
+        }
         .onTapGesture {
           vm.paste(item)
           withAnimation {
@@ -76,19 +86,34 @@ struct CopyItemView: View {
           }
         }
         .gesture(longPress)
-        .opacity(showCheckMark || showDeleteAction ? showCheckMarkOpacity : 1.0)
+        .opacity(showCheckMark || showActions ? showCheckMarkOpacity : 1.0)
 
-      if showDeleteAction {
-        HStack(spacing: 4) {
-          Text("Delete")
-          Image(systemName: "trash")
-        }
-        .foregroundStyle(.red)
-        .contentShape(Rectangle())
-        .onTapGesture {
-          withAnimation {
-            hideDeleteAction()
-            vm.deleteItem(item)
+      if showActions {
+        VStack(spacing: 12) {
+          HStack(spacing: 4) {
+            Text(item.isPinned ? "Unpin" : "Pin")
+            Image(systemName: item.isPinned ? "pin.slash" : "pin")
+          }
+          .foregroundStyle(Constants.Colors.adaptiveTextColor)
+          .contentShape(Rectangle())
+          .onTapGesture {
+            withAnimation {
+              hideActions()
+              vm.togglePin(item)
+            }
+          }
+
+          HStack(spacing: 4) {
+            Text("Delete")
+            Image(systemName: "trash")
+          }
+          .foregroundStyle(.red)
+          .contentShape(Rectangle())
+          .onTapGesture {
+            withAnimation {
+              hideActions()
+              vm.deleteItem(item)
+            }
           }
         }
       }

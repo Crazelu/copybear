@@ -13,6 +13,7 @@ struct CopyItem: Equatable {
   let fileUrl: Data?
   let name: String?
   var date: Date
+  var isPinned: Bool = false
 
   init(type: CopyItemType, data: Data) {
     self.type = type
@@ -54,10 +55,12 @@ struct CopyItem: Equatable {
     self.date = Date()
   }
 
-  static func == (lhs: CopyItem, rhs: CopyItem) -> Bool {
-    lhs.type == rhs.type &&
-    lhs.data == rhs.data &&
-    lhs.fileUrl == rhs.fileUrl &&
-    lhs.name == rhs.name
+  // Content-based match for dedup and lookups; ignores date and pin state.
+  // Full (synthesized) == is left intact so SwiftUI can detect pin/date changes.
+  func matches(_ other: CopyItem) -> Bool {
+    type == other.type &&
+    data == other.data &&
+    fileUrl == other.fileUrl &&
+    name == other.name
   }
 }
