@@ -55,6 +55,7 @@
 /* Begin PBXFileReference section */
 		FF5BBCC62FDE437A0025CC9E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FF5BBCC72FDE43840025CC9E /* InstallationGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = InstallationGuide.md; sourceTree = "<group>"; };
+		FFSPARKLE000000000000006 /* ReleaseGuide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseGuide.md; sourceTree = "<group>"; };
 		FF608AE02CD95FB600308F1C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		FFDA6A122CB45B530004ADF2 /* CopyBear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyBear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA6A232CB45B540004ADF2 /* CopyBearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyBearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +134,7 @@
 				FFDA6A132CB45B530004ADF2 /* Products */,
 				FF5BBCC62FDE437A0025CC9E /* README.md */,
 				FF5BBCC72FDE43840025CC9E /* InstallationGuide.md */,
+				FFSPARKLE000000000000006 /* ReleaseGuide.md */,
 			);
 			sourceTree = "<group>";
 		};

@@ -67,7 +67,7 @@ struct CopyItemView: View {
         .clipShape(.rect(cornerRadius: 10))
         .overlay(alignment: .topTrailing) {
           if item.isPinned {
-            Image(systemName: "pin")
+            Image(systemName: "pin.fill")
               .font(.caption)
               .foregroundStyle(Constants.Colors.textColor)
               .padding(4)
