@@ -6,12 +6,20 @@
         <description>Most recent updates to CopyBear</description>
         <language>en</language>
         <item>
+            <title>3.0</title>
+            <pubDate>Fri, 17 Jul 2026 20:33:24 +0100</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>3.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/Crazelu/copybear/releases/download/v3.0/CopyBear.zip" length="3878364" type="application/octet-stream" sparkle:edSignature="giJUXgkDgNbAGaZvaiM3bh4/QtMmIl1UrNCMVflA3hAMoamzLO5qAIEtMTJhJa50bdnx84T68rKOIzl8hV/uCQ=="/>
+        </item>
+        <item>
             <title>2.2</title>
             <pubDate>Fri, 17 Jul 2026 19:31:12 +0100</pubDate>
             <sparkle:version>2</sparkle:version>
             <sparkle:shortVersionString>2.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Crazelu/copybear/releases/download/2.2/CopyBear.zip" length="3843950" type="application/octet-stream" sparkle:edSignature="gUovsnOdjm6YgGHYzUCgvkHAT14mQG7Ev0kUtaKQkTA3l/3ARhpSMR8al/mMmHqnJtpooLpavbEco6my49gRBw=="/>
+            <enclosure url="https://github.com/Crazelu/copybear/releases/download/v2.2/CopyBear.zip" length="3843950" type="application/octet-stream" sparkle:edSignature="gUovsnOdjm6YgGHYzUCgvkHAT14mQG7Ev0kUtaKQkTA3l/3ARhpSMR8al/mMmHqnJtpooLpavbEco6my49gRBw=="/>
         </item>
     </channel>
 </rss>
