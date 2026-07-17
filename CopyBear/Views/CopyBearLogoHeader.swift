@@ -44,7 +44,7 @@ struct CopyBearLogoHeader: View {
             vm.openSettings()
           }
         }) {
-          Image(Constants.Icons.settingsIcon)
+          Image(systemName: "gearshape")
             .resizable()
             .scaledToFit()
             .frame(width: 20, height: 20)
