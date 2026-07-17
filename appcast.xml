@@ -6,6 +6,14 @@
         <description>Most recent updates to CopyBear</description>
         <language>en</language>
         <item>
+            <title>3.1</title>
+            <pubDate>Fri, 17 Jul 2026 22:00:14 +0100</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>3.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/Crazelu/copybear/releases/download/v3.1/CopyBear.zip" length="3874622" type="application/octet-stream" sparkle:edSignature="zFx5gZF+189qaVBtduvgPrhSWm6etTlPVKGtATGgjufi1aZlrg/Z7zzIgo95zy4zMoIHfVnHM8JFrqdLQmjxAg=="/>
+        </item>
+        <item>
             <title>3.0</title>
             <pubDate>Fri, 17 Jul 2026 20:33:24 +0100</pubDate>
             <sparkle:version>3</sparkle:version>
