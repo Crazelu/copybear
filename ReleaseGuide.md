@@ -19,16 +19,35 @@ SPARKLE_BIN="$(find ~/Library/Developer/Xcode/DerivedData -path '*artifacts/spar
    - `CURRENT_PROJECT_VERSION` (build number) — **must strictly increase every release**;
      Sparkle compares this value, not the marketing version.
 
-2. **Archive and zip the app** (Release build):
+2. **Archive the app** (Release build):
 
    ```sh
    xcodebuild -project CopyBear.xcodeproj -scheme CopyBear -configuration Release \
      -archivePath build/CopyBear.xcarchive archive
-   ditto -c -k --sequesterRsrc --keepParent \
-     build/CopyBear.xcarchive/Products/Applications/CopyBear.app CopyBear-2.2.zip
    ```
 
-3. **Generate the signed appcast entry.** Put the zip in a folder (e.g. `build/releases/`)
+3. **Re-sign ad-hoc, preserving entitlements.** The archive is signed with the Apple
+   Development certificate, which won't run on other Macs, so it must be re-signed
+   ad-hoc for distribution. `--preserve-metadata=entitlements` is **required** — a plain
+   `codesign -s - -f` strips the sandbox and the mach-lookup entitlements Sparkle's
+   sandboxed installer needs:
+
+   ```sh
+   APP=build/CopyBear.xcarchive/Products/Applications/CopyBear.app
+   codesign -s - -f --preserve-metadata=entitlements "$APP"
+
+   # Verify before shipping: must list app-sandbox and the two -spks/-spki entries
+   codesign -d --entitlements - "$APP"
+   codesign --verify --deep --strict "$APP"
+   ```
+
+4. **Zip it:**
+
+   ```sh
+   ditto -c -k --sequesterRsrc --keepParent "$APP" CopyBear-2.2.zip
+   ```
+
+5. **Generate the signed appcast entry.** Put the zip in a folder (e.g. `build/releases/`)
    and run:
 
    ```sh
@@ -43,7 +62,7 @@ SPARKLE_BIN="$(find ~/Library/Developer/Xcode/DerivedData -path '*artifacts/spar
    create. Keeping older zips in `build/releases/` preserves their entries and enables
    delta updates.
 
-4. **Publish — order matters:**
+6. **Publish — order matters:**
    1. Create the GitHub release with tag `2.2` and upload `CopyBear-2.2.zip` as an asset.
    2. Only after the asset is live, commit and push the updated `appcast.xml` to `main`
       (the app reads `https://raw.githubusercontent.com/Crazelu/copybear/main/appcast.xml`).
